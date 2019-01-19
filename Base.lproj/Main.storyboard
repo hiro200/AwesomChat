@@ -38,6 +38,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="kj0-62-QgI"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="mL4-xU-YwX"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692.75362318840587" y="40.848214285714285"/>
+            <point key="canvasLocation" x="542" y="-36"/>
         </scene>
     </scenes>
 </document>

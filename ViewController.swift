@@ -7,8 +7,25 @@
 //
 
 import UIKit
+import Foundation
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clicell", for: indexPath) as! clientCell
+        
+        return cell
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
