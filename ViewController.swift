@@ -46,7 +46,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         
         
         
-        let password = "djhfkshf=!jfhhkufhkf=jfdkjdkjjkl"
+        
         
         // get AES-256 CBC encrypted string
         let encrypted_id:String? = AES256CBC.encryptString("kariosrt", password: password)
