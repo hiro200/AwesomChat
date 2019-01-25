@@ -9,13 +9,13 @@
 import UIKit
 import Foundation
 //import Alamofire
-import AES256CBC
-import SwiftyJSON
+//import AES256CBC
+//import SwiftyJSON
 
 class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var MyCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         
@@ -23,10 +23,11 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
         
         
         
-        collectionView.register(UINib(nibName: "People", bundle: nil), forCellWithReuseIdentifier: "PeopleCell")
+        MyCollectionView.register(UINib(nibName: "PeopleCell", bundle: nil), forCellWithReuseIdentifier: "PeopleCell")
         
         
     }
+    
     
     
     
@@ -35,10 +36,10 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
         return 1
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeopleCell", for: indexPath) as! PeopleCell
-        
         
         
         

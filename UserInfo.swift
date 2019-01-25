@@ -15,7 +15,7 @@ let password = "djhfkshf=!jfhhkufhkf=jfdkjdkjjkl"
 class UserInfo {
     
     var nickname = "a"
-    var age = 1
+    //var age = 1
     var sex = true
     var description = "df"
     var wher = "서울"
