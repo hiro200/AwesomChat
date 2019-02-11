@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uVo-oN-a8k">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chatting View Controller-->
+        <scene sceneID="2nA-bn-jnv">
+            <objects>
+                <viewController id="uVo-oN-a8k" customClass="ChattingViewController" customModule="AwesomeChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7jf-ib-oV9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CCd-DQ-588">
+                                <rect key="frame" x="0.0" y="44" width="414" height="636"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hu3-jp-8bQ">
+                                    <size key="itemSize" width="200" height="30"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MessageCell" id="dgs-9W-i9a" customClass="MessageCell" customModule="AwesomeChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="uVo-oN-a8k" id="cyQ-Xo-tCf"/>
+                                    <outlet property="delegate" destination="uVo-oN-a8k" id="eux-TO-pnn"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oC6-Lm-IqL">
+                                <rect key="frame" x="0.0" y="674" width="414" height="200"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v5z-ze-5LB">
+                                        <rect key="frame" x="23" y="16" width="279" height="150"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="htr-sH-ne3"/>
+                                            <constraint firstAttribute="width" constant="279" id="tSb-vb-Xfy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nuq-qG-OiJ">
+                                        <rect key="frame" x="310" y="16" width="96" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="h6H-Pl-mWS"/>
+                                            <constraint firstAttribute="width" constant="96" id="vNl-Wh-sui"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <size key="titleShadowOffset" width="3" height="8"/>
+                                        <state key="normal" image="rcmessage_send.png"/>
+                                        <connections>
+                                            <action selector="buttonInputSend:" destination="uVo-oN-a8k" eventType="touchUpInside" id="6lO-dO-0yF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90823972230000005" green="0.92638683320000004" blue="0.93171715740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="v5z-ze-5LB" firstAttribute="top" secondItem="oC6-Lm-IqL" secondAttribute="top" constant="16" id="50Y-AT-OsS"/>
+                                    <constraint firstItem="Nuq-qG-OiJ" firstAttribute="top" secondItem="oC6-Lm-IqL" secondAttribute="top" constant="16" id="BOU-HL-t6b"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nuq-qG-OiJ" secondAttribute="trailing" constant="8" id="DXs-ii-VWN"/>
+                                    <constraint firstItem="v5z-ze-5LB" firstAttribute="leading" secondItem="oC6-Lm-IqL" secondAttribute="leading" constant="23" id="ZPS-YP-gnp"/>
+                                    <constraint firstItem="Nuq-qG-OiJ" firstAttribute="leading" secondItem="v5z-ze-5LB" secondAttribute="trailing" constant="8" id="aZ9-hh-2Sd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nuq-qG-OiJ" secondAttribute="bottom" constant="34" id="pOQ-p9-G1A"/>
+                                    <constraint firstAttribute="bottom" secondItem="v5z-ze-5LB" secondAttribute="bottom" constant="34" id="thm-Wa-hHd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oC6-Lm-IqL" firstAttribute="top" secondItem="gzU-NK-ygY" secondAttribute="top" constant="630" id="CmO-Yj-jHu"/>
+                            <constraint firstItem="CCd-DQ-588" firstAttribute="trailing" secondItem="gzU-NK-ygY" secondAttribute="trailing" id="DNV-e1-1dF"/>
+                            <constraint firstItem="gzU-NK-ygY" firstAttribute="bottom" secondItem="CCd-DQ-588" secondAttribute="bottom" constant="182" id="F7y-uU-wD5"/>
+                            <constraint firstItem="CCd-DQ-588" firstAttribute="leading" secondItem="gzU-NK-ygY" secondAttribute="leading" id="Yob-s4-HO9"/>
+                            <constraint firstItem="oC6-Lm-IqL" firstAttribute="leading" secondItem="gzU-NK-ygY" secondAttribute="leading" id="o0k-l1-Rl6"/>
+                            <constraint firstAttribute="bottom" secondItem="oC6-Lm-IqL" secondAttribute="bottom" constant="22" id="sB5-JH-TMc"/>
+                            <constraint firstItem="oC6-Lm-IqL" firstAttribute="trailing" secondItem="gzU-NK-ygY" secondAttribute="trailing" id="veT-Y0-tty"/>
+                            <constraint firstItem="CCd-DQ-588" firstAttribute="top" secondItem="gzU-NK-ygY" secondAttribute="top" id="zbR-AM-iOo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gzU-NK-ygY"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonInputSend" destination="Nuq-qG-OiJ" id="Ywh-y0-C7y"/>
+                        <outlet property="collectView" destination="CCd-DQ-588" id="Ws0-0z-DbF"/>
+                        <outlet property="textInput" destination="v5z-ze-5LB" id="bBI-6A-gA1"/>
+                        <outlet property="viewInput" destination="oC6-Lm-IqL" id="ELN-qs-QeM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QiE-pc-Jxc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746.37681159420299" y="-22.098214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="rcmessage_send.png" width="22" height="22"/>
+    </resources>
+</document>

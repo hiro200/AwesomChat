@@ -30,7 +30,7 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
     
     
     
-    
+    //  코드로 셀 갯수 정하는거
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return 1

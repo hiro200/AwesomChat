@@ -33,6 +33,14 @@
                                     <outlet property="delegate" destination="b5Y-5F-hXM" id="bhQ-CO-U9t"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbb-Xn-qpI">
+                                <rect key="frame" x="147" y="354" width="126" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="gka-dr-yfI" kind="presentation" id="lCw-Ur-lEI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -52,7 +60,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Im7-9q-jle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="-670"/>
+            <point key="canvasLocation" x="-391.304347826087" y="-670.3125"/>
+        </scene>
+        <!--Chatting-->
+        <scene sceneID="L5C-1q-BKi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chatting" id="gka-dr-yfI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ub7-n6-nua" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="367" y="-895"/>
         </scene>
         <!--item3-->
         <scene sceneID="hlC-RY-hy9">
