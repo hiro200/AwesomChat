@@ -49,9 +49,7 @@ class TableChatViewController:  UIViewController, UITableViewDataSource, UITable
         socket.connect()
         
         
-        //tablesView.separatorStyle = .none
-        
-        
+    
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
@@ -80,27 +78,23 @@ class TableChatViewController:  UIViewController, UITableViewDataSource, UITable
         
         let cell = tablesView.dequeueReusableCell(withIdentifier: "TableMessageCell", for: indexPath) as! TableMessageCell
         
-      //  var textInset: UIEdgeInsets                = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-        
-   
         
         let currentChatMessage = chatMessages[indexPath.row]
         
      //   let labelWidth = UILabel.textWidth(label: cell.textsView)
         
         cell.textsView.text = currentChatMessage
-     //   cell.textsView.autoresizingMask = .flexibleWidth
-        
+     
         
         cell.textsView.sizeToFit()
         
+        cell.textsView.layer.masksToBounds = true
+        cell.textsView.layer.cornerRadius = 10
+        
+        
         cell.frame =  CGRect(x: 5, y: cell.frame.height+10, width: cell.textsView.frame.width, height: cell.textsView.frame.height)
         
-     //   tablesView.frame = CGRect(x: 0, y: 0, width: ceil(labelWidth), height: cell.frame.height)
-        
-        
-     //   layoutAttribute = .left
-     //   layoutConstant = 10
+       
         
       //   tablesView.frame = CGRect(x: 0, y: 0, width: width, height: height )
  
