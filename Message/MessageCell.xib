@@ -13,19 +13,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MessageCell" id="gC3-79-gNP" customClass="MessageCell" customModule="AwesomeChat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xw-ZQ-k7Q">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="200" id="sex-dO-4HT"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xw-ZQ-k7Q">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
@@ -35,12 +32,12 @@
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="7xw-ZQ-k7Q" secondAttribute="trailing" id="Lq3-YG-x37"/>
-                <constraint firstItem="7xw-ZQ-k7Q" firstAttribute="top" secondItem="gC3-79-gNP" secondAttribute="top" id="Tcx-NS-HrD"/>
-                <constraint firstAttribute="bottom" secondItem="7xw-ZQ-k7Q" secondAttribute="bottom" id="gCb-0r-p83"/>
-                <constraint firstItem="7xw-ZQ-k7Q" firstAttribute="leading" secondItem="gC3-79-gNP" secondAttribute="leading" id="vjd-EU-R8E"/>
+                <constraint firstItem="7xw-ZQ-k7Q" firstAttribute="top" secondItem="gC3-79-gNP" secondAttribute="top" id="8Ak-g3-obQ"/>
+                <constraint firstAttribute="trailing" secondItem="7xw-ZQ-k7Q" secondAttribute="trailing" id="Ggk-qT-RHa"/>
+                <constraint firstItem="7xw-ZQ-k7Q" firstAttribute="leading" secondItem="gC3-79-gNP" secondAttribute="leading" id="YSo-X4-l6E"/>
+                <constraint firstAttribute="bottom" secondItem="7xw-ZQ-k7Q" secondAttribute="bottom" id="hXh-8o-Xo7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="U5s-SS-u0z"/>
             <connections>

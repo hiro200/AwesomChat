@@ -22,27 +22,16 @@ class MessageCell: UICollectionViewCell {
  //   @IBOutlet weak var widthContrain: NSLayoutConstraint!
     
     
-    /*
-    class func fromNib() -> MessageCell?
-    {
-        var cell: MessageCell?
-        let nibViews = Bundle.main.loadNibNamed("MessageCell", owner: nil, options: nil)
-        for nibView in nibViews! {
-            if let cellView = nibView as? MessageCell {
-                
-            
-                cell = cellView
-            }
-        }
-        return cell
-    }
-    */
+  
     
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let autoLayoutAttributes = super.preferredLayoutAttributesFitting(layoutAttributes)
         
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
+        
+        
+      //  let targetSize = CGSize(width: 0, height: 0)
         
         let autoLayoutSize = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: UILayoutPriority.required, verticalFittingPriority: UILayoutPriority.defaultLow)
         

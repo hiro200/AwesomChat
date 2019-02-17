@@ -10,20 +10,24 @@
 // THE SOFTWARE.
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
+
+import UIKit
+
+
 class RCBubbleFooterCell: UITableViewCell {
 
 	var labelBubbleFooter: UILabel!
 
 	private var indexPath: IndexPath!
-	private var messagesView: RCMessagesView!
+	//private var messagesView: RCMessagesView!
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	@objc func bindData(_ indexPath_: IndexPath, messagesView messagesView_: RCMessagesView) {
+	@objc func bindData(_ indexPath_: IndexPath) {
 
 		indexPath = indexPath_
-		messagesView = messagesView_
+	//	messagesView = messagesView_
 
-		let rcmessage = messagesView.rcmessage(indexPath) as! RCMessage
+	//	let rcmessage = messagesView.rcmessage(indexPath) as! RCMessage
 
 		backgroundColor = UIColor.clear
 
@@ -34,8 +38,8 @@ class RCBubbleFooterCell: UITableViewCell {
 			contentView.addSubview(labelBubbleFooter)
 		}
 
-		labelBubbleFooter.textAlignment = rcmessage.incoming ? .left : .right
-		labelBubbleFooter.text = messagesView.textBubbleFooter(indexPath)
+	//	labelBubbleFooter.textAlignment = rcmessage.incoming ? .left : .right
+	//	labelBubbleFooter.text = messagesView.textBubbleFooter(indexPath)
 	}
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------
@@ -43,18 +47,18 @@ class RCBubbleFooterCell: UITableViewCell {
 
 		super.layoutSubviews()
 
-		let widthTable = messagesView.tableView.frame.size.width
+		//let widthTable = messagesView.tableView.frame.size.width
 
-		let width: CGFloat = widthTable - RCMessages().bubbleFooterLeft - RCMessages().bubbleFooterRight
+	//	let width: CGFloat = widthTable - RCMessages().bubbleFooterLeft - RCMessages().bubbleFooterRight
 		let height: CGFloat = (labelBubbleFooter.text != nil) ? RCMessages().bubbleFooterHeight : 0
 
-		labelBubbleFooter.frame = CGRect(x: RCMessages().bubbleFooterLeft, y: 0, width: width, height: height)
+	//	labelBubbleFooter.frame = CGRect(x: RCMessages().bubbleFooterLeft, y: 0, width: width, height: height)
 	}
 
 	// MARK: - Size methods
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	@objc class func height(_ indexPath: IndexPath, messagesView: RCMessagesView) -> CGFloat {
+    @objc class func height(_ indexPath: IndexPath) -> CGFloat {
 
-		return (messagesView.textBubbleFooter(indexPath) != nil) ? RCMessages().bubbleFooterHeight : 0
+		return 0
 	}
 }

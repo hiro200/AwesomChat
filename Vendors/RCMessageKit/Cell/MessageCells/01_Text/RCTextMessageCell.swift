@@ -10,7 +10,7 @@
 // THE SOFTWARE.
 
 
-/*
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 import UIKit
 import Foundation
@@ -20,17 +20,17 @@ class RCTextMessageCell: RCMessageCell {
 	var textView: UITextView!
 
 	private var indexPath: IndexPath!
-	private var messagesView: RCMessagesView!
+	//private var messagesView: RCMessagesView!
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	@objc override func bindData(_ indexPath_: IndexPath, messagesView messagesView_: RCMessagesView) {
+	@objc override func bindData(_ indexPath_: IndexPath) {
 
 		indexPath = indexPath_
-		messagesView = messagesView_
+	//	messagesView = messagesView_
 
-		let rcmessage = messagesView.rcmessage(indexPath) as! RCMessage
+	//	let rcmessage = messagesView.rcmessage(indexPath) as! RCMessage
 
-		super.bindData(indexPath, messagesView: messagesView)
+		super.bindData(indexPath)
 
 		viewBubble.backgroundColor = rcmessage.incoming ? RCMessages().textBubbleColorIncoming : RCMessages().textBubbleColorOutgoing
 
@@ -89,4 +89,4 @@ class RCTextMessageCell: RCMessageCell {
 }
 
  
- */
+

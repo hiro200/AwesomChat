@@ -10,20 +10,24 @@
 // THE SOFTWARE.
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
+
+import UIKit
+
+
 class RCBubbleHeaderCell: UITableViewCell {
 
 	var labelBubbleHeader: UILabel!
 
 	private var indexPath: IndexPath!
-	private var messagesView: RCMessagesView!
+	//private var messagesView: RCMessagesView!
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	@objc func bindData(_ indexPath_: IndexPath, messagesView messagesView_: RCMessagesView) {
+	@objc func bindData(_ indexPath_: IndexPath) {
 
 		indexPath = indexPath_
-		messagesView = messagesView_
+	//	messagesView = messagesView_
 
-		let rcmessage = messagesView.rcmessage(indexPath) as! RCMessage
+	//	let rcmessage = messagesView.rcmessage(indexPath) as! RCMessage
 
 		backgroundColor = UIColor.clear
 
@@ -34,8 +38,8 @@ class RCBubbleHeaderCell: UITableViewCell {
 			contentView.addSubview(labelBubbleHeader)
 		}
 
-		labelBubbleHeader.textAlignment = rcmessage.incoming ? .left : .right
-		labelBubbleHeader.text = messagesView.textBubbleHeader(indexPath)
+	//	labelBubbleHeader.textAlignment = rcmessage.incoming ? .left : .right
+	//	labelBubbleHeader.text = messagesView.textBubbleHeader(indexPath)
 	}
 
 	//---------------------------------------------------------------------------------------------------------------------------------------------
@@ -43,18 +47,18 @@ class RCBubbleHeaderCell: UITableViewCell {
 
 		super.layoutSubviews()
 
-		let widthTable = messagesView.tableView.frame.size.width
+	//	let widthTable = messagesView.tableView.frame.size.width
 
-		let width: CGFloat = widthTable - RCMessages().bubbleHeaderLeft - RCMessages().bubbleHeaderRight
+	//	let width: CGFloat = widthTable - RCMessages().bubbleHeaderLeft - RCMessages().bubbleHeaderRight
 		let height: CGFloat = (labelBubbleHeader.text != nil) ? RCMessages().bubbleHeaderHeight : 0
 
-		labelBubbleHeader.frame = CGRect(x: RCMessages().bubbleHeaderLeft, y: 0, width: width, height: height)
+	//	labelBubbleHeader.frame = CGRect(x: RCMessages().bubbleHeaderLeft, y: 0, width: width, height: height)
 	}
 
 	// MARK: - Size methods
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	@objc class func height(_ indexPath: IndexPath, messagesView: RCMessagesView) -> CGFloat {
+	@objc class func height(_ indexPath: IndexPath) -> CGFloat {
 
-		return (messagesView.textBubbleHeader(indexPath) != nil) ? RCMessages().bubbleHeaderHeight : 0
+		return  0
 	}
 }

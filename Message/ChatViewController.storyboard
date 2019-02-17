@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="256-PM-xsp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chat View Controller-->
+        <scene sceneID="qA1-MD-kxe">
+            <objects>
+                <viewController id="256-PM-xsp" customClass="ChatViewController" customModule="AwesomeChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IvY-cV-HUe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myK-j6-y1r">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XiQ-hd-SXD">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-fV-OoX">
+                                        <rect key="frame" x="327" y="-6" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="njl-6e-R0s"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="rcmessage_send.png"/>
+                                        <connections>
+                                            <action selector="buttonInputSend:" destination="256-PM-xsp" eventType="touchUpInside" id="en3-T2-J5u"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="lbH-fV-OoX" firstAttribute="leading" secondItem="XiQ-hd-SXD" secondAttribute="trailing" constant="12" id="2Hx-i0-v9v"/>
+                                    <constraint firstItem="lbH-fV-OoX" firstAttribute="leading" secondItem="XiQ-hd-SXD" secondAttribute="trailing" constant="12" id="Lt2-Rc-T0l"/>
+                                    <constraint firstAttribute="bottom" secondItem="XiQ-hd-SXD" secondAttribute="bottom" id="PXm-xF-zgo"/>
+                                    <constraint firstItem="lbH-fV-OoX" firstAttribute="top" secondItem="myK-j6-y1r" secondAttribute="top" constant="-6" id="Wdn-V5-k8U"/>
+                                    <constraint firstAttribute="trailing" secondItem="lbH-fV-OoX" secondAttribute="trailing" constant="8" id="dUW-RB-84P"/>
+                                    <constraint firstItem="XiQ-hd-SXD" firstAttribute="leading" secondItem="myK-j6-y1r" secondAttribute="leading" id="ffn-zH-NQe"/>
+                                    <constraint firstAttribute="bottom" secondItem="lbH-fV-OoX" secondAttribute="bottom" constant="6" id="i8f-mW-9mm"/>
+                                    <constraint firstItem="XiQ-hd-SXD" firstAttribute="top" secondItem="myK-j6-y1r" secondAttribute="top" id="lX4-w6-1Ed"/>
+                                    <constraint firstItem="lbH-fV-OoX" firstAttribute="trailing" secondItem="myK-j6-y1r" secondAttribute="trailingMargin" id="mfg-7f-QiB"/>
+                                    <constraint firstItem="lbH-fV-OoX" firstAttribute="top" secondItem="myK-j6-y1r" secondAttribute="top" constant="-6" id="rkC-Jf-S4Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="lbH-fV-OoX" secondAttribute="bottom" constant="6" id="unj-hL-AvA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="myK-j6-y1r" firstAttribute="bottom" secondItem="Ows-wz-F1r" secondAttribute="bottom" id="ED7-u7-dgm"/>
+                            <constraint firstItem="myK-j6-y1r" firstAttribute="leading" secondItem="IvY-cV-HUe" secondAttribute="leading" id="ace-2N-Zi1"/>
+                            <constraint firstAttribute="trailing" secondItem="myK-j6-y1r" secondAttribute="trailing" id="l7y-no-6aX"/>
+                            <constraint firstItem="myK-j6-y1r" firstAttribute="top" secondItem="Ows-wz-F1r" secondAttribute="top" constant="607" id="o0J-wU-R6g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ows-wz-F1r"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonInputSend" destination="lbH-fV-OoX" id="J5B-YP-Pdr"/>
+                        <outlet property="textInput" destination="XiQ-hd-SXD" id="KUh-Bf-0uD"/>
+                        <outlet property="viewInput" destination="myK-j6-y1r" id="i0G-Vq-hlW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Phg-Rs-Pxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72.799999999999997" y="29.23538230884558"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="rcmessage_send.png" width="22" height="22"/>
+    </resources>
+</document>

@@ -32,9 +32,9 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet var buttonInputSend: UIButton!
     @IBOutlet var viewInput: UIView!
 
-    let screenSize = UIScreen.main.bounds
+   // let screenSize = UIScreen.main.bounds
     
-    private var initialized = false
+  //  private var initialized = false
     
     private var msg = "asd"
     
@@ -53,45 +53,23 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
         //tableView 일 경우
     //    tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
-        /*
-        let temp = MessageCell()
+       
+    
+            
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        let screenWidth = screenSize.width
-        layout.itemSize = CGSize(width: 412, height: 100)
-        collectView.collectionViewLayout = layout
-        collectView.frame.size.width = temp.frame.size.width
-         */
-        
-        
-        if let flowLayout = collectView.collectionViewLayout as? UICollectionViewFlowLayout {
-            //setNeedsLayout()
-           // loadViewIfNeeded()
+        if let layout = collectView.collectionViewLayout as? UICollectionViewFlowLayout {
+           
+            // layout?.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
             
-            
-            let cell = MessageCell()
-            
-            
-            
-            //flowLayout.estimatedItemSize = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
-            
-            let layout = collectView.collectionViewLayout as? UICollectionViewFlowLayout
-            layout?.estimatedItemSize = CGSize(width: 200, height: 30) // your average cell size
+            layout.estimatedItemSize = CGSize(width: 300, height: 30) // your average cell size
           
-            
-            //flowLayout.estimatedItemSize = CGSize(width: cell.contentView.frame.width, height: cell.contentView.frame.height ) //use auto layout for the collection view
-            
             
              collectView.register(UINib(nibName: "MessageCell", bundle: nil), forCellWithReuseIdentifier: "MessageCell")
             
         }
         
  
-       
-        
-        //self.view.addSubview(collectView)
-        
+     
     
         socket.connect()
         
@@ -106,43 +84,39 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
         
         
-      //  inputPanelInit()
+        for familyName in UIFont.familyNames {
+            print("========\(familyName)===========")
+            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+                print(fontName)
+            }
+        }
+        
+        
+        
         
     }
     
     
     
+    
+    
+   
     
     
     /*
-    func countLabelLines(label: UILabel) -> Int {
-        // Call self.layoutIfNeeded() if your view uses auto layout
-        let myText = label.text! as NSString
-        
-        let rect = CGSize(width: label.bounds.width, height: CGFloat.greatestFiniteMagnitude)
-        let labelSize = myText.boundingRect(with: rect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: label.font], context: nil)
-        
-        return Int(ceil(CGFloat(labelSize.height) / label.font.lineHeight))
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cell = collectView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as! MessageCell
+         let cell = collectView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as! MessageCell
+       
         
-        
-        let size = countLabelLines(label: cell.comment)
-        let heights = 30 * size
-        
-        return CGSize(width: cell.contentView.frame.width, height: CGFloat(heights) )
+        let text = chatMessages[indexPath.row]
+        let width = UILabel.textWidth(font: UIFont.init(name: "Copperplate-Bold", size: 24)! , text: text)
+        return CGSize(width: width, height: 30)
     }
     */
-    
-    
-    
-    
  
     
+   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return chatMessages.count
@@ -177,47 +151,7 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
     
     
     
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGRectEdge {
-        
-        
-        if var messageText:String = chatMessages[indexPath.row] {
-            
-            let size = CGSize(width: view.frame.width, height: 1000)
-            let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-            let estiFrame = NSString(string: messageText).boundingRectWithSize(size, options: options, attributes: [NSFontAttributeName:UIFont.systemFontSize(18)], context: nil)
-            
-        }
-        
-        
-        
-        
-        return  CGRectEdge(view.frame.width,100)
-    }
-    */
-    
-    /*
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
-        return chatMessages.count
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
-        
-        let currentChatMessage = chatMessages[indexPath.row]
-        
-        cell.comment.text = currentChatMessage
-        
-        
-        return  cell
-    }
-    */
-    
+   
     
     //---------------------------------------------------------------------------------------------------------------------------------------------
   
@@ -242,17 +176,7 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
     
   
     
-    
-    // MARK: - Message methods
-    //---------------------------------------------------------------------------------------------------------------------------------------------
-    func rcmessage(_ indexPath: IndexPath) -> RCMessage {
-        
-        return RCMessage()
-    }
-    
-   
-   
- 
+  
 
     
     // MARK: - Keyboard methods
@@ -293,96 +217,6 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
     }
     
     
-    // MARK: - Input panel methods
-    //---------------------------------------------------------------------------------------------------------------------------------------------
-    func inputPanelInit() {
-        
-        
-        /*
-        viewInput.backgroundColor = RCMessages().inputViewBackColor
-        textInput.backgroundColor = RCMessages().inputTextBackColor
-        
-        textInput.font = RCMessages().inputFont
-        textInput.textColor = RCMessages().inputTextTextColor
-        
-        textInput.textContainer.lineFragmentPadding = 0
-        textInput.textContainerInset = RCMessages().inputInset
-        
-        textInput.layer.borderColor = RCMessages().inputBorderColor
-        textInput.layer.borderWidth = RCMessages().inputBorderWidth
-        
-        textInput.layer.cornerRadius = RCMessages().inputRadius
-        textInput.clipsToBounds = true
- 
-        */
-        
-    }
-    
-    
-    
-    //---------------------------------------------------------------------------------------------------------------------------------------------
-    func inputPanelUpdate() {
-        
-        let heightView: CGFloat = view.frame.size.height
-        let widthView: CGFloat = view.frame.size.width
-        
-        let leftSafe: CGFloat = view.safeAreaInsets.left
-        let rightSafe: CGFloat = view.safeAreaInsets.right
-        let bottomSafe: CGFloat = view.safeAreaInsets.bottom
-        
-        let widthText: CGFloat = textInput.frame.size.width
-        var heightText: CGFloat
-        let sizeText = textInput.sizeThatFits(CGSize(width: widthText, height: CGFloat.greatestFiniteMagnitude))
-        
-        
-        /*
-        heightText = CGFloat.maximum(RCMessages().inputTextHeightMin, sizeText.height)
-        heightText = CGFloat.minimum(RCMessages().inputTextHeightMax, heightText)
-        
-        let heightInput: CGFloat = heightText + (RCMessages().inputViewHeightMin - RCMessages().inputTextHeightMin)
-        
-        tableView.frame = CGRect(x: leftSafe, y: 0, width: widthView - leftSafe - rightSafe, height: heightView - bottomSafe - heightInput)
- 
-        
- 
-        var frameViewInput: CGRect = viewInput.frame
-        frameViewInput.origin.y = heightView - bottomSafe - heightInput
-        frameViewInput.size.height = heightInput
-        viewInput.frame = frameViewInput
-        
-        viewInput.layoutIfNeeded()
-        
-        var frameAttach: CGRect = buttonInputAttach.frame
-        frameAttach.origin.y = heightInput - frameAttach.size.height
-        buttonInputAttach.frame = frameAttach
-        
-        var frameTextInput: CGRect = textInput.frame
-        frameTextInput.size.height = heightText
-        textInput.frame = frameTextInput
-        
-        var frameSend: CGRect = buttonInputSend.frame
-        frameSend.origin.y = heightInput - frameSend.size.height
-        buttonInputSend.frame = frameSend
-        
-        buttonInputSend.isEnabled = textInput.text.count != 0
-        
-        let offset = CGPoint(x: 0, y: sizeText.height - heightText)
-        textInput.setContentOffset(offset, animated: false)
-        */
-     //   scroll(toBottom: false)
-    }
-    
-   
- 
-    // MARK: - User actions (bubble tap)
-    //---------------------------------------------------------------------------------------------------------------------------------------------
-    func actionTapBubble(_ indexPath: IndexPath) {
-        
-    }
-    
-    // MARK: - User actions (avatar tap)
-    //---------------------------------------------------------------------------------------------------------------------------------------------
- 
     
     //---------------------------------------------------------------------------------------------------------------------------------------------
     @IBAction func buttonInputSend(_ sender: Any) {
@@ -395,7 +229,7 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
             actionSendMessage(textInput.text)
             dismissKeyboard()
             textInput.text = nil
-            inputPanelUpdate()
+            
             
         }
     }
@@ -420,6 +254,8 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
             
             
             self.chatMessages.append(self.msg)
+            
+        
             
             print("Msg \(self.msg)")
             print("Data Info \(data)")
@@ -480,4 +316,26 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
   
 }
 
+
+extension UILabel {
+    func textWidth() -> CGFloat {
+        return UILabel.textWidth(label: self)
+    }
+    
+    class func textWidth(label: UILabel) -> CGFloat {
+        return textWidth(label: label, text: label.text!)
+    }
+    
+    class func textWidth(label: UILabel, text: String) -> CGFloat {
+        return textWidth(font: label.font, text: text)
+    }
+    
+    class func textWidth(font: UIFont, text: String) -> CGFloat {
+        let myText = text as NSString
+        
+        let rect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
+        let labelSize = myText.boundingRect(with: rect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return ceil(labelSize.width)
+    }
+}
 
