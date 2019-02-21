@@ -33,9 +33,8 @@
                                     <outlet property="delegate" destination="b5Y-5F-hXM" id="bhQ-CO-U9t"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbb-Xn-qpI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbb-Xn-qpI">
                                 <rect key="frame" x="147" y="354" width="126" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="gka-dr-yfI" kind="presentation" id="lCw-Ur-lEI"/>
@@ -44,8 +43,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ERI-ie-XPR" firstAttribute="trailing" secondItem="Mbb-Xn-qpI" secondAttribute="trailing" constant="141" id="5WL-f0-Mg5"/>
                             <constraint firstItem="XOS-Jw-yME" firstAttribute="bottom" secondItem="ERI-ie-XPR" secondAttribute="bottom" id="8fW-9c-8Ar"/>
+                            <constraint firstItem="Mbb-Xn-qpI" firstAttribute="leading" secondItem="ERI-ie-XPR" secondAttribute="leading" constant="147" id="8nz-Ik-0XH"/>
                             <constraint firstItem="XOS-Jw-yME" firstAttribute="trailing" secondItem="ERI-ie-XPR" secondAttribute="trailing" id="MbP-7e-znd"/>
+                            <constraint firstItem="ERI-ie-XPR" firstAttribute="bottom" secondItem="Mbb-Xn-qpI" secondAttribute="bottom" constant="369" id="Re7-N5-HKi"/>
+                            <constraint firstItem="Mbb-Xn-qpI" firstAttribute="top" secondItem="ERI-ie-XPR" secondAttribute="top" constant="266" id="eni-Pl-gXf"/>
                             <constraint firstItem="XOS-Jw-yME" firstAttribute="top" secondItem="ERI-ie-XPR" secondAttribute="top" id="i3H-QU-ZBe"/>
                             <constraint firstItem="XOS-Jw-yME" firstAttribute="leading" secondItem="ERI-ie-XPR" secondAttribute="leading" id="ujY-Dr-XzJ"/>
                         </constraints>
@@ -62,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="-391.304347826087" y="-670.3125"/>
         </scene>
-        <!--Chatting-->
+        <!--Expanding-->
         <scene sceneID="L5C-1q-BKi">
             <objects>
-                <viewControllerPlaceholder storyboardName="Chatting" id="gka-dr-yfI" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Expanding" id="gka-dr-yfI" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ub7-n6-nua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="367" y="-895"/>

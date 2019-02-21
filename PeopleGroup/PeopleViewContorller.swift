@@ -14,6 +14,12 @@ import Foundation
 
 class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
+    let users = [ // model
+        UserInfo(nickname: "koko", sex: true, description:"hi there", wher: "Seoul", favor: "S", Mers: "dse"),
+        UserInfo(nickname: "nana", sex: false, description:"hi there", wher: "Seoul", favor: "S", Mers: "dse")
+    ]
+    
+    
     
     @IBOutlet weak var MyCollectionView: UICollectionView!
     
@@ -21,6 +27,11 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
         
         super.viewDidLoad()
         
+       
+        
+        
+        let viewModel = CollectViewModel(users: users)
+        self.viewModel = viewModel
         
         
         MyCollectionView.register(UINib(nibName: "PeopleCell", bundle: nil), forCellWithReuseIdentifier: "PeopleCell")
@@ -29,17 +40,34 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
     }
     
     
+    var viewModel: CollectViewModelProtocol! {
+        didSet {
+            self.viewModel.userDidChange = { [unowned self] viewModel in
+                
+                self.MyCollectionView.reloadData()
+            }
+        }
+    }
+    
+    
     
     //  코드로 셀 갯수 정하는거
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 1
+        return 2
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeopleCell", for: indexPath) as! PeopleCell
+        
+        let user = users[indexPath.row]
+        
+        
+        cell.nickname.text = user.nickname
+        cell.decrip.text = user.description
+        cell.favor.text = user.favor
         
         
         
