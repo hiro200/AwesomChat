@@ -33,6 +33,13 @@ class ExpandingFooterCell: UICollectionViewCell  {
     }
     */
     
+    
+    func stopIndigate() {
+    
+        self.refreshControlIndicator.stopAnimating()
+    
+    }
+    
     /*
     func setTransform(inTransform:CGAffineTransform, scaleFactor:CGFloat) {
         if isAnimatingFinal {
