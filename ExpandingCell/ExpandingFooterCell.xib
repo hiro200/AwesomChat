@@ -12,23 +12,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e10-nG-4f6" customClass="ExpandingFooterCell" customModule="AwesomeChat" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ExpandingFooterCell" reuseIdentifier="ExpandingFooterCell" id="WNd-DU-4cp" customClass="ExpandingFooterCell" customModule="AwesomeChat" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="XyE-cZ-LDe">
-                    <rect key="frame" x="177" y="15" width="20" height="20"/>
-                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                </activityIndicatorView>
-            </subviews>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="XyE-cZ-LDe">
+                        <rect key="frame" x="177" y="15" width="20" height="20"/>
+                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
+                </subviews>
+            </view>
             <constraints>
-                <constraint firstItem="zGk-MR-bsX" firstAttribute="bottom" secondItem="XyE-cZ-LDe" secondAttribute="bottom" constant="15" id="LWa-uh-cim"/>
-                <constraint firstItem="zGk-MR-bsX" firstAttribute="trailing" secondItem="XyE-cZ-LDe" secondAttribute="trailing" constant="178" id="a1a-C6-rBe"/>
-                <constraint firstItem="XyE-cZ-LDe" firstAttribute="top" secondItem="zGk-MR-bsX" secondAttribute="top" constant="15" id="ocy-c2-QVP"/>
-                <constraint firstItem="XyE-cZ-LDe" firstAttribute="leading" secondItem="zGk-MR-bsX" secondAttribute="leading" constant="177" id="pQ3-bk-oa4"/>
+                <constraint firstItem="XyE-cZ-LDe" firstAttribute="top" secondItem="WNd-DU-4cp" secondAttribute="top" constant="15" id="QWt-Xb-Mg9"/>
+                <constraint firstAttribute="trailing" secondItem="XyE-cZ-LDe" secondAttribute="trailing" constant="178" id="gtC-0t-WX5"/>
+                <constraint firstAttribute="bottom" secondItem="XyE-cZ-LDe" secondAttribute="bottom" constant="15" id="j1k-EW-rD3"/>
+                <constraint firstItem="XyE-cZ-LDe" firstAttribute="leading" secondItem="WNd-DU-4cp" secondAttribute="leading" constant="177" id="kAB-X8-g7N"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="zGk-MR-bsX"/>
-            <point key="canvasLocation" x="358" y="13"/>
-        </collectionReusableView>
+            <viewLayoutGuide key="safeArea" id="ksv-WV-nJp"/>
+            <connections>
+                <outlet property="refreshControlIndicator" destination="XyE-cZ-LDe" id="Ch4-Id-g48"/>
+            </connections>
+            <point key="canvasLocation" x="106" y="-62"/>
+        </collectionViewCell>
     </objects>
 </document>

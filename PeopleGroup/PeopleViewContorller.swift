@@ -28,10 +28,25 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
         super.viewDidLoad()
         
        
+        let refreshControl = UIRefreshControl()
+        var isLoading:Bool = false
         
         
         let viewModel = CollectViewModel(users: users)
         self.viewModel = viewModel
+        
+        
+        
+        if #available(iOS 10.0, *) {
+            MyCollectionView.refreshControl = refreshControl
+        } else {
+            MyCollectionView.addSubview(refreshControl)
+        }
+        
+        
+        /*
+        MyCollectionView.register(UINib(nibName: "ExpandingFooterView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ExpandingFooterView")
+        */
         
         
         MyCollectionView.register(UINib(nibName: "PeopleCell", bundle: nil), forCellWithReuseIdentifier: "PeopleCell")
@@ -62,17 +77,57 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeopleCell", for: indexPath) as! PeopleCell
         
-        let user = users[indexPath.row]
+        if (indexPath.row == 2 ) {  }
+        else {
+            let user = users[indexPath.row]
+            cell.nickname.text = user.nickname
+            cell.decrip.text = user.description
+            cell.favor.text = user.favor
+        }
         
         
-        cell.nickname.text = user.nickname
-        cell.decrip.text = user.description
-        cell.favor.text = user.favor
         
+        
+        if indexPath.row == 2 {
+            
+            cell.nickname.text = nil
+            cell.decrip.text = "Load...."
+            cell.favor.text = nil
+            
+        }
         
         
         return cell
     }
+    
+    
+    // cell click
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if  indexPath.row == 2 {
+            
+            print("Loading Success")
+            
+        }
+        
+    }
+    
+    
+    /*
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionFooter {
+            let aFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ExpandingFooterView", for: indexPath) as! ExpandingFooterView
+            
+            
+            
+            return aFooterView
+        } else {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ExpandingFooterCell", for: indexPath)
+            return headerView
+        }
+    }
+    
+    */
     
     
     

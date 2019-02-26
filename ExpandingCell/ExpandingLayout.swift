@@ -16,6 +16,7 @@ class ExpandingLayout: UICollectionViewLayout {
     // The amount the user needs to scroll before the featured cell changes
     let dragOffset: CGFloat = 180.0
     
+    
     var cache: [UICollectionViewLayoutAttributes] = []
     
     // Returns the item index of the currently featured cell
@@ -110,9 +111,39 @@ extension ExpandingLayout {
         return CGPoint(x: 0, y: yOffset)
     }
     
+    
+    
+    /*
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionFooter {
+            let aFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ExpandingFooterView", for: indexPath) as! ExpandingFooterView
+            
+            self.footerView = aFooterView
+            
+            return aFooterView
+            
+        } else {
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ExpandingFooterView", for: indexPath)
+            return headerView
+        }
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        if elementKind == UICollectionView.elementKindSectionFooter {
+            self.footerView?.prepareInitialAnimation()
+        }
+    }
+    
+    */
+    
+    
+    
     // Return true so that the layout is continuously invalidated as the user scrolls
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
+    
 }
 
