@@ -13,14 +13,17 @@ import UIKit
 
 
 class ExpandingLayout: UICollectionViewLayout {
-    // The amount the user needs to scroll before the featured cell changes
+    // The amount the user needs to scroll before the featured cell changes  스크롤 할때 피쳐드셀이 되는 필요한 오프셋값
     let dragOffset: CGFloat = 180.0
     
-    
+    //   배치의 속성 캐쉬값 배열
     var cache: [UICollectionViewLayoutAttributes] = []
     
     // Returns the item index of the currently featured cell
     var featuredItemIndex: Int {
+        //
+        print("Collect--ContentoffsetY ==> \(collectionView!.contentOffset.y)" )
+        
         // Use max to make sure the featureItemIndex is never < 0
         return max(0, Int(collectionView!.contentOffset.y / dragOffset))
     }

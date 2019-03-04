@@ -50,7 +50,7 @@ class ExpandingController: UIViewController, UICollectionViewDelegate, UICollect
       //  self.ExpandCollectionView.register(UINib(nibName: "ExpandingFooterView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ExpandingFooterView")
         
         
-      //  ExpandCollectionView.register(UINib(nibName: "ExpandingFooterCell", bundle: nil),  forCellWithReuseIdentifier: "ExpandingFooterCell")
+        ExpandCollectionView.register(UINib(nibName: "ExpandingFooterCell", bundle: nil),  forCellWithReuseIdentifier: "ExpandingFooterCell")
         
         ExpandCollectionView.register(UINib(nibName: "ExpandingCell", bundle: nil), forCellWithReuseIdentifier: "ExpandingCell")
         
@@ -99,10 +99,10 @@ class ExpandingController: UIViewController, UICollectionViewDelegate, UICollect
         return inspirations.count
     }
     
-    /*
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
        
-        if indexPath.row == temp - 4 {
+        if indexPath.row == inspirations.count - 1 {
             // loadMoreData()
             let cells = ExpandCollectionView.dequeueReusableCell(withReuseIdentifier: "ExpandingFooterCell", for: indexPath) as! ExpandingFooterCell
             
@@ -116,21 +116,21 @@ class ExpandingController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
     }
-    */
+ 
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
        
     
-        /*
-        if indexPath.row == temp - 4{
+        
+        if indexPath.row == inspirations.count - 1 {
             // return the new UICollectionViewCell with an activity indicator
             let cells = ExpandCollectionView.dequeueReusableCell(withReuseIdentifier: "ExpandingFooterCell", for: indexPath) as! ExpandingFooterCell
             
             return cells
         }
-        */
+ 
         
         let cell = ExpandCollectionView.dequeueReusableCell(withReuseIdentifier: "ExpandingCell", for: indexPath) as! ExpandingCell
         

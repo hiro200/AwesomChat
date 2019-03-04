@@ -12,12 +12,19 @@ import Foundation
 //import AES256CBC
 //import SwiftyJSON
 
+
+
+
+
+
 class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
+    
     
     let users = [ // model
         UserInfo(nickname: "koko", sex: true, description:"hi there", wher: "Seoul", favor: "S", Mers: "dse"),
         UserInfo(nickname: "nana", sex: false, description:"hi there", wher: "Seoul", favor: "S", Mers: "dse")
     ]
+    
     
     
     
@@ -27,10 +34,9 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
         
         super.viewDidLoad()
         
-       
+    
         let refreshControl = UIRefreshControl()
-        var isLoading:Bool = false
-        
+       
         
         let viewModel = CollectViewModel(users: users)
         self.viewModel = viewModel
@@ -44,12 +50,11 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
         }
         
         
-        /*
-        MyCollectionView.register(UINib(nibName: "ExpandingFooterView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ExpandingFooterView")
-        */
+      
         
+        let bundle = Bundle(for: self.classForCoder)
         
-        MyCollectionView.register(UINib(nibName: "PeopleCell", bundle: nil), forCellWithReuseIdentifier: "PeopleCell")
+        MyCollectionView.register(UINib(nibName: "PeopleCell", bundle: bundle), forCellWithReuseIdentifier: "PeopleCell")
         
         
     }
@@ -66,6 +71,26 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
     
     
     
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goViewController" {
+            
+            let destinations : ViewController = (segue.destination as? ViewController)!
+            destinations.userData = users
+            destinations.delegate = self as? SendDataDelegate
+            // destinations.transitioningDelegate = self as? UIViewControllerTransitioningDelegate
+            
+        }
+        
+    }
+    
+   
+    
+    
+    
+    
     //  코드로 셀 갯수 정하는거
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -77,7 +102,12 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeopleCell", for: indexPath) as! PeopleCell
         
-        if (indexPath.row == 2 ) {  }
+        if (indexPath.row == 2 ) {
+            cell.nickname.text = nil
+            cell.decrip.text = "Load...."
+            cell.favor.text = nil
+            
+        }
         else {
             let user = users[indexPath.row]
             cell.nickname.text = user.nickname
@@ -85,32 +115,34 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
             cell.favor.text = user.favor
         }
         
-        
-        
-        
-        if indexPath.row == 2 {
-            
-            cell.nickname.text = nil
-            cell.decrip.text = "Load...."
-            cell.favor.text = nil
-            
-        }
-        
-        
+    
         return cell
     }
+    
     
     
     // cell click
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if  indexPath.row == 2 {
+        if  indexPath.row == 1 {
             
             print("Loading Success")
+            
             
         }
         
     }
+    
+    
+    
+    @IBAction func DataSend(_ sender: Any) {
+        
+         //   delegate?.sendData(data: users)
+         //   dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     
     
     /*
@@ -132,3 +164,7 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
     
     
 }
+
+
+
+

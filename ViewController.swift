@@ -14,10 +14,20 @@ import SwiftyJSON
 
 
 
+protocol SendDataDelegate {
+    
+    func sendData(data: [UserInfo])
+    
+}
+
+
 class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var CollectionView: UICollectionView!
     
+    var userData:[UserInfo]!
+    
+    var delegate: SendDataDelegate?
     
     override func viewDidLoad() {
         
@@ -28,14 +38,23 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         CollectionView.register(UINib(nibName: "clientCell", bundle: nil), forCellWithReuseIdentifier: "clicell")
         
         
+       // print("Nickname ==> \(String(describing: userData?.nickname))" )
+        
+    }
+    
+   
+    
+    @IBAction func myExit(sender: UIStoryboardSegue)  {
+        
+        
     }
     
     
-    
+   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 3
+        return 2
     }
     
     
@@ -45,8 +64,8 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clicell", for: indexPath) as! clientCell
         
         
-        
-        
+        cell.nickName.text = userData![indexPath.row].nickname
+        cell.DecLable.text = userData![indexPath.row].description
         
         
         // get AES-256 CBC encrypted string
@@ -111,8 +130,22 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         return cell
     }
     
-
+    @IBAction func backBt(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)   //스택 위에뷰를 쌓은걸 삭제
+        
+    }
     
+}
 
+
+
+extension ViewController : SendDataDelegate {
+    
+    func sendData(data: [UserInfo]) {
+        userData = data
+    }
+    
+    
 }
 

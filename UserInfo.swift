@@ -23,7 +23,7 @@ struct UserInfo {
     var sex = true
     var description = "df"
     var wher = "서울"
-    var favor = "S"
+    var favor = ""
     var Mers = "d"
     
 }
