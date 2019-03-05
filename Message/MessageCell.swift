@@ -19,11 +19,7 @@ class MessageCell: UICollectionViewCell {
     @IBOutlet weak var AvartaImg: UIImageView!
     @IBOutlet weak var bubbleImg: UIImageView!
     
- //   @IBOutlet weak var widthContrain: NSLayoutConstraint!
-    
-    
-  
-    
+ 
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let autoLayoutAttributes = super.preferredLayoutAttributesFitting(layoutAttributes)

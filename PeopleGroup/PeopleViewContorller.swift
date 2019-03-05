@@ -14,19 +14,23 @@ import Foundation
 
 
 
-
+protocol SendDataDelegate {
+    
+    func sendData(_ controller: PeopleViewContorller , data: [UserInfo])
+    
+}
 
 
 class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     
     
-    let users = [ // model
+    var users = [ // model
         UserInfo(nickname: "koko", sex: true, description:"hi there", wher: "Seoul", favor: "S", Mers: "dse"),
         UserInfo(nickname: "nana", sex: false, description:"hi there", wher: "Seoul", favor: "S", Mers: "dse")
     ]
     
     
-    
+    var delegate: SendDataDelegate?
     
     @IBOutlet weak var MyCollectionView: UICollectionView!
     
@@ -71,22 +75,22 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
     
     
     
-   
+   /*
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goViewController" {
             
             let destinations : ViewController = (segue.destination as? ViewController)!
-            destinations.userData = users
-            destinations.delegate = self as? SendDataDelegate
-            // destinations.transitioningDelegate = self as? UIViewControllerTransitioningDelegate
+           // destinations.userData = users
+           // delegate?.sendData(data: users)
+            destinations.delegates = self.delegate as? ViewController
             
         }
         
     }
     
-   
+   */
     
     
     
@@ -134,11 +138,27 @@ class PeopleViewContorller: UIViewController,UICollectionViewDataSource, UIColle
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goViewController"  {
+            
+            let destinations  = segue.destination as? ViewController
+        
+            destinations?.userData = users
+            
+        }
+        
+    }
+    
+    
     
     @IBAction func DataSend(_ sender: Any) {
         
-         //   delegate?.sendData(data: users)
+        if delegate != nil {
+            delegate?.sendData(self, data: users)
          //   dismiss(animated: true, completion: nil)
+        }
+            
     }
     
     

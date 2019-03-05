@@ -37,7 +37,7 @@ class ExpandingController: UIViewController, UICollectionViewDelegate, UICollect
             
  
         }
-    */
+         */
         
         
         if #available(iOS 10.0, *) {
@@ -47,7 +47,7 @@ class ExpandingController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         
-      //  self.ExpandCollectionView.register(UINib(nibName: "ExpandingFooterView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "ExpandingFooterView")
+     
         
         
         ExpandCollectionView.register(UINib(nibName: "ExpandingFooterCell", bundle: nil),  forCellWithReuseIdentifier: "ExpandingFooterCell")
@@ -139,50 +139,6 @@ class ExpandingController: UIViewController, UICollectionViewDelegate, UICollect
         
         return cell
     }
-    
-    /***************************** 컬렉션뷰 헤더 선언 및 리턴 ******************************/
-    /*
-    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView{
-        
-        var footer: ExpandingFooterView?
-        if kind == UICollectionView.elementKindSectionHeader {
-            footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ExpandingFooterView", for: indexPath) as? ExpandingFooterView
-            
-            
-        }
-        return footer!
-    }
- */
-    /***************************** 컬렉션뷰 헤더 선언 및 리턴 ******************************/
-  
-    
-    
-    /*
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionFooter {
-            let aFooterView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ExpandingFooterView", for: indexPath) as! ExpandingFooterView
-            
-            self.footerView = aFooterView
-            
-            return aFooterView
-            
-        } else {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ExpandingFooterView", for: indexPath)
-            return headerView
-        }
-    }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
-        if elementKind == UICollectionView.elementKindSectionFooter {
-            self.footerView?.prepareInitialAnimation()
-        }
-    }
-    */
-    
-   
-    
     
     
     

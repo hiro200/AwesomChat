@@ -50,7 +50,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="DataSend:" destination="b5Y-5F-hXM" eventType="touchUpInside" id="wA2-yQ-q12"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="goViewController" id="Yyt-xW-Moz"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="goViewController" animates="NO" id="Yyt-xW-Moz"/>
                                 </connections>
                             </button>
                         </subviews>

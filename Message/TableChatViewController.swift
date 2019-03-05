@@ -36,9 +36,7 @@ class TableChatViewController:  UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         
     
-   //     tablesView = UITableView(frame: .zero, style: .plain)
-   //     tablesView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
+  
         
         //tableView 일 경우
         tablesView.register(UINib(nibName: "TableMessageCell", bundle: nil), forCellReuseIdentifier: "TableMessageCell")

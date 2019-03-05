@@ -14,20 +14,18 @@ import SwiftyJSON
 
 
 
-protocol SendDataDelegate {
-    
-    func sendData(data: [UserInfo])
-    
-}
 
-
-class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate, SendDataDelegate {
+    
+    
+    
+    //var delegates: ViewController?
     
     @IBOutlet weak var CollectionView: UICollectionView!
     
-    var userData:[UserInfo]!
+     var userData:[UserInfo]?
     
-    var delegate: SendDataDelegate?
+    //var delegate: SendDataDelegate?
     
     override func viewDidLoad() {
         
@@ -36,6 +34,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         
        
         CollectionView.register(UINib(nibName: "clientCell", bundle: nil), forCellWithReuseIdentifier: "clicell")
+        
         
         
        // print("Nickname ==> \(String(describing: userData?.nickname))" )
@@ -64,8 +63,8 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clicell", for: indexPath) as! clientCell
         
         
-        cell.nickName.text = userData![indexPath.row].nickname
-        cell.DecLable.text = userData![indexPath.row].description
+        cell.nickName.text = userData?[indexPath.row].nickname
+        cell.DecLable.text = userData?[indexPath.row].description
         
         
         // get AES-256 CBC encrypted string
@@ -130,22 +129,24 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         return cell
     }
     
+    
+   
+    
+    
+    
     @IBAction func backBt(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)   //스택 위에뷰를 쌓은걸 삭제
         
     }
     
-}
-
-
-
-extension ViewController : SendDataDelegate {
-    
-    func sendData(data: [UserInfo]) {
+    func sendData(_ controller: PeopleViewContorller, data: [UserInfo]) {
         userData = data
+        CollectionView.reloadData()
     }
-    
+  
     
 }
+
+
 

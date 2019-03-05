@@ -32,9 +32,7 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet var buttonInputSend: UIButton!
     @IBOutlet var viewInput: UIView!
 
-   // let screenSize = UIScreen.main.bounds
-    
-  //  private var initialized = false
+  
     
     private var msg = "asd"
     
@@ -184,7 +182,7 @@ class ChattingViewController:  UIViewController, UICollectionViewDataSource, UIC
     @objc func keyboardShow(_ notification: Notification?) {
         
         if let info = notification?.userInfo {
-            if let keyboard = info[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            if (info[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect) != nil {
                 let duration = TimeInterval(info[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double)
                 UIView.animate(withDuration: duration, delay: 0, options: .allowUserInteraction, animations: {
                //     self.view.center = CGPoint(x: self.view.center.x ,  y: self.view.center.y - keyboard.size.height + self.view.safeAreaInsets.bottom)
